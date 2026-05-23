@@ -5,14 +5,14 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/avukadin/goapi/internal/handlers"
+	"github.com/vector15-05/GoCoin/internal/handlers"
 	log "github.com/sirupsen/logrus"
 )
 
 func main(){
 
 	log.SetReportCaller(true)
-	var r *chi.Mux = chi.NewRouter()
+	r := chi.NewRouter()
 	handlers.Handlers(r)
 
 	fmt.Println("Starting Go API service....")
@@ -24,6 +24,8 @@ func main(){
    \ \_____\\ \_____\    \ \_____\\ \_____\\ \_\ \_\\"\_\ 
     \/_____/ \/_____/     \/_____/ \/_____/ \/_/\/_/ \/_/ 
 `
+
+	fmt.Println(goCoin)
 
 	err := http.ListenAndServe("localhost:8000",r)
 	if err != nil {
